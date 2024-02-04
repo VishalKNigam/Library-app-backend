@@ -10,6 +10,15 @@ app.use(express.json());
 app.use("/users",UserRouter);
 app.use("/books", bookRouter);
 
+app.get("/", (req, res) => {
+    res.send(`
+        <h1>Welcome to the Library App!</h1>
+        <p>This app is powered by Node.js and ReactJS, providing secure user authentication, role-based access control, and efficient book management with MongoDB integration.</p>
+        <p>Explore the API routes at /users and /books for user and book management, respectively.</p>
+        <p>Happy coding!</p>
+    `);
+});
+
 //Connection to the Database and PORT
 app.listen(process.env.PORT, async () => {
     try {
